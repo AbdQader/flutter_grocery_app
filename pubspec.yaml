@@ -1,0 +1,66 @@
+name: ecommerce_app
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=2.16.0 <3.0.0'
+
+dependencies: 
+  cupertino_icons:
+  get: # for state management and context less stuff
+  flutter_screenutil: # make app responsive
+  shared_preferences: # shared preferences persistence key value store
+  flutter_launcher_icons: # change app icon
+  change_app_package_name: # change package name
+  rename_app: # rename app
+  flutter_svg: # for svg icons
+  carousel_slider: # for image slider
+  badges: # for badges
+  flutter_animate: # for animation
+
+  flutter: 
+    sdk: flutter
+
+dev_dependencies:
+  mockito:
+  flutter_lints:
+
+  integration_test:
+    sdk: flutter
+
+  flutter_test: 
+    sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  #adaptive_icon_background: "#FFFFFF"
+  #adaptive_icon_foreground: "assets/images/app_icon_foreground.png"
+
+flutter: 
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/vectors/
+    - assets/fonts/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 700
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-Regular.ttf
+          weight: 300
+        - asset: assets/fonts/Cairo-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Cairo-SemiBold.ttf
+          weight: 900
+
