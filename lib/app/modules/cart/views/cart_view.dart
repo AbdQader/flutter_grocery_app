@@ -27,28 +27,18 @@ class CartView extends GetView<CartController> {
             children: [
               CustomIconButton(
                 onPressed: () => Get.back(),
+                backgroundColor: theme.scaffoldBackgroundColor,
+                borderColor: theme.dividerColor,
                 icon: SvgPicture.asset(
                   Constants.backArrowIcon,
                   fit: BoxFit.none,
                   color: theme.appBarTheme.iconTheme?.color,
                 ),
-                borderColor: theme.dividerColor,
               ),
-              Text(
-                'Cart 🛒',
-                style: theme.textTheme.headline3,
-              ),
-              Opacity(
+              Text('Cart 🛒', style: theme.textTheme.headline3),
+              const Opacity(
                 opacity: 0.0,
-                child: CustomIconButton(
-                  onPressed: null,
-                  icon: SvgPicture.asset(
-                    Constants.backArrowIcon,
-                    fit: BoxFit.none,
-                    color: theme.appBarTheme.iconTheme?.color,
-                  ),
-                  borderColor: theme.dividerColor,
-                ),
+                child: CustomIconButton(onPressed: null, icon: Center()),
               ),
             ],
           ),
@@ -69,70 +59,12 @@ class CartView extends GetView<CartController> {
                     itemCount: controller.products.length,
                     itemBuilder: (context, index) => CartItem(
                       product: controller.products[index],
-                    ).animate().fade().slideX(
-                      duration: const Duration(milliseconds: 300),
+                    ).animate(delay: (100 * index).ms).fade().slideX(
+                      duration: 300.ms,
                       begin: -1,
                       curve: Curves.easeInSine,
                     ),
                   ),
-            ),
-            30.verticalSpace,
-            Visibility(
-              visible: controller.products.isNotEmpty,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24.w),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 65.w,
-                      height: 65.h,
-                      decoration: BoxDecoration(
-                        color: theme.primaryColor,
-                        borderRadius: BorderRadius.circular(12.r),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(Constants.busIcon),
-                          5.verticalSpace,
-                          Text('FREE', style: theme.textTheme.headline6?.copyWith(
-                            color: Colors.white,
-                          )),
-                        ],
-                      ),
-                    ),
-                    20.horizontalSpace,
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Total:', style: theme.textTheme.bodyText1?.copyWith(
-                          fontSize: 18.sp,
-                        )),
-                        10.verticalSpace,
-                        Text(
-                          '\$${controller.total.toStringAsFixed(2)}',
-                          style: theme.textTheme.headline3?.copyWith(
-                            decoration: TextDecoration.underline,
-                            decorationColor: theme.primaryColor.withOpacity(0.5),
-                            decorationThickness: 1,
-                            color: Colors.transparent,
-                            shadows: [
-                              Shadow(
-                                color: theme.textTheme.headline3!.color!,
-                                offset: const Offset(0, -5)
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ).animate().fade().slideX(
-                  duration: const Duration(milliseconds: 300),
-                  begin: -1,
-                  curve: Curves.easeInSine,
-                ),
-              ),
             ),
             30.verticalSpace,
             Visibility(
@@ -147,7 +79,7 @@ class CartView extends GetView<CartController> {
                   verticalPadding: 16.h,
                   hasShadow: false,
                 ).animate().fade().slideY(
-                  duration: const Duration(milliseconds: 300),
+                  duration: 300.ms,
                   begin: 1,
                   curve: Curves.easeInSine,
                 ),

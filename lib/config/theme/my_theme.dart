@@ -12,10 +12,14 @@ class MyTheme {
         useMaterial3: true,
         // main color (app bar,tabs..etc)
         primaryColor: isLight ? LightThemeColors.primaryColor : DarkThemeColors.primaryColor,
+        primaryColorLight: isLight ? LightThemeColors.primaryColorLight : DarkThemeColors.primaryColorLight,
+        primaryColorDark: isLight ? LightThemeColors.primaryColorDark : DarkThemeColors.primaryColorDark,
         // secondary color (for checkbox,float button, radio..etc)
         accentColor: isLight ? LightThemeColors.accentColor : DarkThemeColors.accentColor,
         // color contrast (if the theme is dark text should be white for example)
         brightness: isLight ? Brightness.light : Brightness.dark,
+        // canvas Color
+        canvasColor: isLight ? LightThemeColors.canvasColor : DarkThemeColors.canvasColor,
         // card widget background color
         cardColor: isLight ? LightThemeColors.cardColor : DarkThemeColors.cardColor,
         // hint text color
@@ -50,7 +54,7 @@ class MyTheme {
 
   /// update app theme and save theme type to shared pref
   /// (so when the app is killed and up again theme will remain the same)
-  static changeTheme(){
+  static changeTheme() {
     // *) check if the current theme is light (default is light)
     bool isLightTheme = MySharedPref.getThemeIsLight();
     // *) store the new theme mode on get storage

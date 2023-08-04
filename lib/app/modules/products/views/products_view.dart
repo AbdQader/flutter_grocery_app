@@ -10,37 +10,11 @@ import '../controllers/products_controller.dart';
 
 class ProductsView extends GetView<ProductsController> {
   const ProductsView({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     final theme = context.theme;
     return Scaffold(
-      /* appBar: AppBar(
-        title: Text(
-          'Vegetables 🌽',
-          style: theme.textTheme.headline3,
-        ),
-        centerTitle: true,
-        leading: Align(
-          child: CustomIconButton(
-            onPressed: () => Get.back(),
-            icon: SvgPicture.asset(
-              Constants.backArrowIcon,
-              fit: BoxFit.none,
-              color: theme.appBarTheme.iconTheme?.color,
-            ),
-          ),
-        ),
-        actions: [
-          CustomIconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              Constants.searchIcon,
-              fit: BoxFit.none,
-              color: theme.appBarTheme.iconTheme?.color,
-            ),
-          ),
-        ],
-      ), */
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Padding(
@@ -50,12 +24,13 @@ class ProductsView extends GetView<ProductsController> {
             children: [
               CustomIconButton(
                 onPressed: () => Get.back(),
+                backgroundColor: theme.scaffoldBackgroundColor,
+                borderColor: theme.dividerColor,
                 icon: SvgPicture.asset(
                   Constants.backArrowIcon,
                   fit: BoxFit.none,
                   color: theme.appBarTheme.iconTheme?.color,
                 ),
-                borderColor: theme.dividerColor,
               ),
               Text(
                 'Vegetables 🌽',
@@ -63,12 +38,13 @@ class ProductsView extends GetView<ProductsController> {
               ),
               CustomIconButton(
                 onPressed: () {},
+                backgroundColor: theme.scaffoldBackgroundColor,
+                borderColor: theme.dividerColor,
                 icon: SvgPicture.asset(
                   Constants.searchIcon,
                   fit: BoxFit.none,
                   color: theme.appBarTheme.iconTheme?.color,
                 ),
-                borderColor: theme.dividerColor,
               ),
             ],
           ),

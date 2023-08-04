@@ -2,22 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomSnackBar {
-  static showCustomSnackBar({required String title, required String message,Duration? duration})
-  {
+  static showCustomSnackBar({required String title, required String message, Duration? duration}) {
     Get.snackbar(
       title,
       message,
       duration: duration ?? const Duration(seconds: 3),
-      margin: const EdgeInsets.only(top: 10,left: 10,right: 10),
+      margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
       colorText: Colors.white,
-      backgroundColor: Colors.green,
-      icon: const Icon(Icons.check_circle, color: Colors.white,),
+      backgroundColor: const Color(0xFF3A3A3A),
+      icon: const Icon(Icons.check, color: Colors.greenAccent),
     );
   }
 
 
-  static showCustomErrorSnackBar({required String title, required String message,Color? color,Duration? duration})
-  {
+  static showCustomErrorSnackBar({required String title, required String message, Color? color, Duration? duration}) {
     Get.snackbar(
       title,
       message,
@@ -31,7 +29,7 @@ class CustomSnackBar {
 
 
 
-  static showCustomToast({String? title, required String message,Color? color,Duration? duration}){
+  static showCustomToast({String? title, required String message, Color? color, Duration? duration}) {
     Get.rawSnackbar(
       title: title,
       duration: duration ?? const Duration(seconds: 3),
@@ -46,7 +44,7 @@ class CustomSnackBar {
   }
 
 
-  static showCustomErrorToast({String? title, required String message,Color? color,Duration? duration}){
+  static showCustomErrorToast({String? title, required String message, Color? color,Duration? duration}) {
     Get.rawSnackbar(
       title: title,
       duration: duration ?? const Duration(seconds: 3),

@@ -1,4 +1,4 @@
-name: ecommerce_app
+name: grocery_app
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
@@ -35,8 +35,8 @@ flutter_icons:
   android: true
   ios: true
   image_path: "assets/images/app_icon.png"
-  #adaptive_icon_background: "#FFFFFF"
-  #adaptive_icon_foreground: "assets/images/app_icon_foreground.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/app_icon_foreground.png"
 
 flutter: 
   uses-material-design: true

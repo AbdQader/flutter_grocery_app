@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:badges/badges.dart';
 import 'package:get/get.dart';
-import 'package:badges/badges.dart' as badges;
 
 import '../../../../utils/constants.dart';
 import '../../../routes/app_pages.dart';
@@ -28,6 +28,7 @@ class BaseView extends GetView<BaseController> {
             children: const [
               HomeView(),
               CategoryView(),
+              Center(),
               CalendarView(),
               ProfileView()
             ],
@@ -50,6 +51,10 @@ class BaseView extends GetView<BaseController> {
               label: 'category',
               icon: Constants.categoryIcon,
             ),
+            const BottomNavigationBarItem(
+              label: '',
+              icon: Center(),
+            ),
             _mBottomNavItem(
               label: 'Calendar',
               icon: Constants.calendarIcon,
@@ -66,14 +71,30 @@ class BaseView extends GetView<BaseController> {
           elevation: 0.0,
           backgroundColor: Colors.transparent,
           onPressed:() => Get.toNamed(Routes.CART),
-          child: Container(
-            width: 44.w,
-            height: 44.h,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: theme.primaryColor,
+          child: GetBuilder<BaseController>(
+            id: 'CartBadge',
+            builder: (_) => Badge(
+              position: BadgePosition.bottomEnd(bottom: -16, end: 13),
+              badgeContent: Text(
+                controller.cartItemsCount.toString(),
+                style: theme.textTheme.bodyText2?.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              badgeStyle: BadgeStyle(
+                elevation: 2,
+                badgeColor: theme.accentColor,
+                borderSide: const BorderSide(color: Colors.white, width: 1),
+              ),
+              child: CircleAvatar(
+                radius: 22.r,
+                backgroundColor: theme.primaryColor,
+                child: SvgPicture.asset(
+                  Constants.cartIcon, fit: BoxFit.none,
+                ),
+              ),
             ),
-            child: Center(child: SvgPicture.asset(Constants.cartIcon)),
           ),
         ),
       ),
@@ -88,40 +109,4 @@ class BaseView extends GetView<BaseController> {
     );
   }
 
-  _bageIcon() {
-    var basicUse = const badges.Badge(
-      badgeContent: Text('7'),
-      child: Icon(Icons.settings),
-    );
-    return badges.Badge(
-      position: badges.BadgePosition.topEnd(top: -10, end: -12),
-      showBadge: true,
-      ignorePointer: false,
-      onTap: () {},
-      badgeContent: const Icon(Icons.check, color: Colors.white, size: 10),
-      badgeAnimation: const badges.BadgeAnimation.rotation(
-        animationDuration: Duration(seconds: 1),
-        colorChangeAnimationDuration: Duration(seconds: 1),
-        loopAnimation: false,
-        curve: Curves.fastOutSlowIn,
-        colorChangeAnimationCurve: Curves.easeInCubic,
-      ),
-      badgeStyle: badges.BadgeStyle(
-        shape: badges.BadgeShape.square,
-        badgeColor: Colors.blue,
-        padding: const EdgeInsets.all(5),
-        borderRadius: BorderRadius.circular(4),
-        borderSide: const BorderSide(color: Colors.white, width: 2),
-        borderGradient: const badges.BadgeGradient.linear(
-            colors: [Colors.red, Colors.black]),
-        badgeGradient: const badges.BadgeGradient.linear(
-            colors: [Colors.blue, Colors.yellow],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-        ),
-        elevation: 0,
-      ),
-      child: const Text('7'),
-    );
-  }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../data/models/category_model.dart';
@@ -22,10 +24,15 @@ class CategoryItem extends StatelessWidget {
           CircleAvatar(
             radius: 37.r,
             backgroundColor: theme.cardColor,
-            child: Image.asset(category.image),
-          ),
+            child: SvgPicture.asset(category.image),
+          ).animate().fade(duration: 200.ms),
           10.verticalSpace,
-          Text(category.title, style: theme.textTheme.headline6),
+          Text(category.title, style: theme.textTheme.headline6)
+            .animate().fade().slideY(
+              duration: 200.ms,
+              begin: 1,
+              curve: Curves.easeInSine,
+            ),
         ],
       ),
     );

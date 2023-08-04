@@ -23,7 +23,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
         child: ListView(
           children: [
             SizedBox(
-              height: 376.h,
+              height: 330.h,
               child: Stack(
                 children: [
                   Positioned.fill(
@@ -60,12 +60,16 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                     ),
                   ),
                   Positioned(
-                    top: 100.h,
+                    top: 80.h,
                     left: 0,
                     right: 0,
                     child: Image.asset(
                       controller.product.image,
-                      width: 250.w, height: 225.h,
+                      width: 250.w,
+                      height: 225.h,
+                    ).animate().fade().scale(
+                      duration: 800.ms,
+                      curve: Curves.fastOutSlowIn,
                     ),
                   ),
                 ],
@@ -79,17 +83,19 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                   Text(
                     controller.product.name,
                     style: theme.textTheme.headline2,
+                  ).animate().fade().slideX(
+                    duration: 300.ms,
+                    begin: -1,
+                    curve: Curves.easeInSine,
                   ),
                   const Spacer(),
-                  ProductCountItem(
-                    quantity: controller.product.quantity,
-                    onIncreasePressed: () {},
-                    onDecreasePressed: () {},
+                  ProductCountItem(product: controller.product).animate().fade(
+                    duration: 200.ms
                   ),
                 ],
               ),
             ),
-            10.verticalSpace,
+            8.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Text(
@@ -97,17 +103,25 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                 style: theme.textTheme.headline3?.copyWith(
                   color: theme.accentColor,
                 ),
+              ).animate().fade().slideX(
+                duration: 300.ms,
+                begin: -1,
+                curve: Curves.easeInSine,
               ),
             ),
-            10.verticalSpace,
+            8.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Text(
                 controller.product.description,
                 style: theme.textTheme.bodyText1,
+              ).animate().fade().slideX(
+                duration: 300.ms,
+                begin: -1,
+                curve: Curves.easeInSine,
               ),
             ),
-            24.verticalSpace,
+            20.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: GridView(
@@ -123,7 +137,11 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                   title: card['title']!,
                   subtitle: card['subtitle']!,
                   icon: card['icon']!,
-                )).toList(),
+                )).toList().animate().fade().slideY(
+                  duration: 300.ms,
+                  begin: 1,
+                  curve: Curves.easeInSine,
+                ),
               ),
             ),
             30.verticalSpace,
@@ -137,7 +155,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                 verticalPadding: 16.h,
                 hasShadow: false,
               ).animate().fade().slideY(
-                duration: const Duration(milliseconds: 300),
+                duration: 300.ms,
                 begin: 1,
                 curve: Curves.easeInSine,
               ),

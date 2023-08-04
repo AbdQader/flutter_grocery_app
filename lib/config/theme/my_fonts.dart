@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../app/data/local/my_shared_pref.dart';
 import '../translations/localization_service.dart';
 

@@ -4,17 +4,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../utils/constants.dart';
+import '../data/models/product_model.dart';
+import '../modules/base/controllers/base_controller.dart';
 import 'custom_icon_button.dart';
 
-class ProductCountItem extends StatelessWidget {
-  final int quantity;
-  final Function() onIncreasePressed;
-  final Function() onDecreasePressed;
+class ProductCountItem extends GetView<BaseController> {
+  final ProductModel product;
   const ProductCountItem({
     Key? key,
-    required this.quantity,
-    required this.onIncreasePressed,
-    required this.onDecreasePressed,
+    required this.product
   }) : super(key: key);
 
   @override
@@ -25,26 +23,29 @@ class ProductCountItem extends StatelessWidget {
         CustomIconButton(
           width: 36.w,
           height: 36.h,
-          onPressed: onDecreasePressed,
+          onPressed: () => controller.onDecreasePressed(product.id),
           icon: SvgPicture.asset(
             Constants.removeIcon,
-            fit: BoxFit.none
+            fit: BoxFit.none,
           ),
           backgroundColor: theme.cardColor,
         ),
         16.horizontalSpace,
-        Text(
-          quantity.toString(),
-          style: theme.textTheme.headline4
+        GetBuilder<BaseController>(
+          id: 'ProductQuantity',
+          builder: (_) => Text(
+            product.quantity.toString(),
+            style: theme.textTheme.headline4,
+          ),
         ),
         16.horizontalSpace,
         CustomIconButton(
           width: 36.w,
           height: 36.h,
-          onPressed: onIncreasePressed,
+          onPressed: () => controller.onIncreasePressed(product.id),
           icon: SvgPicture.asset(
             Constants.addIcon,
-            fit: BoxFit.none
+            fit: BoxFit.none,
           ),
           backgroundColor: theme.primaryColor,
         ),

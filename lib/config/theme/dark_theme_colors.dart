@@ -4,7 +4,10 @@ class DarkThemeColors
 {
   //dark swatch
   static const Color primaryColor = Color(0xFF40DF9F);
+  static const Color primaryColorLight = Color(0xFF0D1F29);
+  static const Color primaryColorDark = Color(0xFF1A3848);
   static const Color accentColor = Color(0xFFFF324B);
+  static const Color canvasColor = Color(0xFF172C38);
   //static const Color accentColor = Color(0xFFD9EDE1);
 
   //Appbar

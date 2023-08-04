@@ -1,8 +1,7 @@
 import 'package:get/get.dart';
 
-import '../../../../utils/dummy_helper.dart';
 import '../../../data/models/product_model.dart';
-import '../../cart/controllers/cart_controller.dart';
+import '../../base/controllers/base_controller.dart';
 
 class ProductDetailsController extends GetxController {
 
@@ -11,10 +10,10 @@ class ProductDetailsController extends GetxController {
 
   /// when the user press on add to cart button
   onAddToCartPressed() {
-    // var mProduct = DummyHelper.products.firstWhere((p) => p.id == product.id);
-    // mProduct.quantity = mProduct.quantity + 1;
-    // Get.find<CartController>().getCartProducts();
-    // Get.back();
+    if (product.quantity == 0) {
+      Get.find<BaseController>().onIncreasePressed(product.id);
+    }
+    Get.back();
   }
 
 }

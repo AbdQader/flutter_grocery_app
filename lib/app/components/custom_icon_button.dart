@@ -28,7 +28,7 @@ class CustomIconButton extends StatelessWidget {
       child: Material(
         color: backgroundColor ?? theme.backgroundColor,
         shape: borderColor == null ? const CircleBorder() : CircleBorder(
-          side: BorderSide(color: borderColor!)
+          side: BorderSide(color: borderColor!),
         ),
         child: InkWell(
           onTap: onPressed,

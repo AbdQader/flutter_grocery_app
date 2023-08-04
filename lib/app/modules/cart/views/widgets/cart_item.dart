@@ -37,11 +37,7 @@ class CartItem extends GetView<CartController> {
             ],
           ),
           const Spacer(),
-          ProductCountItem(
-            quantity: product.quantity,
-            onIncreasePressed: () {},
-            onDecreasePressed: () {},
-          ),
+          ProductCountItem(product: product),
         ],
       ),
     );

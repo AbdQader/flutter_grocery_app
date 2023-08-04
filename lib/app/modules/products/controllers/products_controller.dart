@@ -16,6 +16,7 @@ class ProductsController extends GetxController {
 
   /// get products from dummy helper
   getProducts() {
-    products = DummyHelper.products..removeWhere((p) => p.id == 2);
+    products.addAll(DummyHelper.products);
+    products.removeWhere((p) => p.id == 2);
   }
 }
