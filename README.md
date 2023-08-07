@@ -7,7 +7,7 @@ The grocery app is a design implementation of [Grocery App](https://dribbble.com
 This project relied on this [Flutter Getx Template](https://github.com/EmadBeltaje/flutter_getx_template) made by [Emad Beltaje](https://github.com/EmadBeltaje).
 
 ## Demo of the application 🎥
-![](https://github.com/AbdQader/flutter_grocery_app/blob/master/preview/Demo.gif)
+![Flutter Grocery App Demo](https://github.com/AbdQader/flutter_grocery_app/assets/64075836/173268d3-ad71-49dd-96a4-d63c8b15e1a9)
 
 ---
 
