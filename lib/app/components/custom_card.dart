@@ -32,12 +32,13 @@ class CustomCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title, style: theme.textTheme.headline5?.copyWith(
+                title,
+                style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.primaryColor,
                 ),
               ),
               4.verticalSpace,
-              Text(subtitle, style: theme.textTheme.bodyText2),
+              Text(subtitle, style: theme.textTheme.bodySmall),
             ],
           )
         ],

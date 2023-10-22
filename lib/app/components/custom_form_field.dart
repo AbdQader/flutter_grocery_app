@@ -51,7 +51,6 @@ class CustomFormField extends StatefulWidget {
   final bool isSearchField; // will show cancel prefix icon to cancel search
   final Function? onCanceled; // callback for cancel (if its search field)
 
-
   const CustomFormField({
     Key? key,
     this.hint,
@@ -105,7 +104,6 @@ class CustomFormField extends StatefulWidget {
 }
 
 class _CustomFormFieldState extends State<CustomFormField> {
-
   String text = '';
 
   @override
@@ -114,11 +112,10 @@ class _CustomFormFieldState extends State<CustomFormField> {
       color: Colors.transparent,
       child: Theme(
         data: Get.theme.copyWith(
-          primaryColor: widget.iconColor ?? Get.theme.primaryColor,
-          colorScheme: Get.theme.colorScheme.copyWith(
-            primary: widget.iconColor ?? Get.theme.primaryColor,
-          )
-        ),
+            primaryColor: widget.iconColor ?? Get.theme.primaryColor,
+            colorScheme: Get.theme.colorScheme.copyWith(
+              primary: widget.iconColor ?? Get.theme.primaryColor,
+            )),
         child: TextFormField(
           textAlign: widget.textAlign ?? TextAlign.start,
           enabled: widget.enabled,
@@ -128,13 +125,15 @@ class _CustomFormFieldState extends State<CustomFormField> {
           //cursorHeight: 15,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           initialValue: widget.initialValue,
-          style: MyStyles.getTextTheme(isLightTheme: Get.isDarkMode).bodyText2!.copyWith(
-            fontSize: widget.textSize ?? 14.sp,
-            color: widget.textColor ?? Colors.black.withOpacity(0.8),
-          ),
+          style: MyStyles.getTextTheme(isLightTheme: Get.isDarkMode)
+              .bodySmall!
+              .copyWith(
+                fontSize: widget.textSize ?? 14.sp,
+                color: widget.textColor ?? Colors.black.withOpacity(0.8),
+              ),
           onSaved: widget.onFieldSubmit,
           onEditingComplete: widget.onEditingComplete,
-          onChanged: (value){
+          onChanged: (value) {
             setState(() {
               text = value;
             });
@@ -144,34 +143,73 @@ class _CustomFormFieldState extends State<CustomFormField> {
           maxLines: widget.obscureText == true ? 1 : widget.maxLines,
           expands: widget.expands ?? false,
           decoration: InputDecoration(
-            label: widget.label == null ? null : Text(widget.label ?? '', style: TextStyle(fontSize: widget.labelSize),),
-            suffixIcon: widget.isSearchField ? text.isEmpty ? null : GestureDetector(onTap: (){
-              setState(() {
-                widget.controller?.clear();
-                text = '';
-                widget.onCanceled?.call();
-                FocusScope.of(context).unfocus();
-              });
-            },child: Icon(Icons.close,color: Get.theme.iconTheme.color,)) :  widget.suffixIcon,
+            label: widget.label == null
+                ? null
+                : Text(
+                    widget.label ?? '',
+                    style: TextStyle(fontSize: widget.labelSize),
+                  ),
+            suffixIcon: widget.isSearchField
+                ? text.isEmpty
+                    ? null
+                    : GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            widget.controller?.clear();
+                            text = '';
+                            widget.onCanceled?.call();
+                            FocusScope.of(context).unfocus();
+                          });
+                        },
+                        child: Icon(
+                          Icons.close,
+                          color: Get.theme.iconTheme.color,
+                        ))
+                : widget.suffixIcon,
             prefixIcon: widget.prefixIcon,
-            contentPadding: widget.contentPadding ?? EdgeInsets.symmetric(vertical: 12.h, horizontal: 20.w),
+            contentPadding: widget.contentPadding ??
+                EdgeInsets.symmetric(vertical: 12.h, horizontal: 20.w),
             isDense: widget.isDense,
             filled: true,
             fillColor: widget.backgroundColor ?? const Color(0xFFF9F9F9),
-            hintStyle:  MyFonts.getAppFontType.copyWith(
-              fontSize: widget.hintFontSize ?? 14.sp,
-              fontWeight: widget.hintFontWeight ?? FontWeight.normal,
-              color: widget.hintColor ?? Colors.black.withOpacity(0.4)
-            ),
+            hintStyle: MyFonts.getAppFontType.copyWith(
+                fontSize: widget.hintFontSize ?? 14.sp,
+                fontWeight: widget.hintFontWeight ?? FontWeight.normal,
+                color: widget.hintColor ?? Colors.black.withOpacity(0.4)),
             hintText: widget.hint,
-            focusedErrorBorder: widget.errorBorder ?? OutlineInputBorder(borderSide: const BorderSide(color: Colors.redAccent, width: 0.0), borderRadius: BorderRadius.circular(widget.borderRound ?? 10)),
-            disabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey.withOpacity(0), width: 0.0), borderRadius: BorderRadius.circular(widget.borderRound ?? 10)),
-            errorBorder: widget.errorBorder ?? OutlineInputBorder(borderSide: const BorderSide(color: Colors.redAccent, width: 0.0), borderRadius: BorderRadius.circular(widget.borderRound ?? 10)),
-            enabledBorder: widget.enabledBorder ?? OutlineInputBorder(borderSide: BorderSide(color: widget.enabledBorder == null ? Colors.transparent :  Colors.grey[300]!, width: 0.0), borderRadius: BorderRadius.circular(widget.borderRound ?? 10)),
-            focusedBorder: widget.focusedBorder ?? OutlineInputBorder(
-              borderSide: BorderSide(color: widget.focusedBorderColor ?? Theme.of(context).primaryColor, width: 1.0),
-              borderRadius: BorderRadius.circular(widget.borderRound ?? 10),
-            ),
+            focusedErrorBorder: widget.errorBorder ??
+                OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: Colors.redAccent, width: 0.0),
+                    borderRadius:
+                        BorderRadius.circular(widget.borderRound ?? 10)),
+            disabledBorder: OutlineInputBorder(
+                borderSide:
+                    BorderSide(color: Colors.grey.withOpacity(0), width: 0.0),
+                borderRadius: BorderRadius.circular(widget.borderRound ?? 10)),
+            errorBorder: widget.errorBorder ??
+                OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: Colors.redAccent, width: 0.0),
+                    borderRadius:
+                        BorderRadius.circular(widget.borderRound ?? 10)),
+            enabledBorder: widget.enabledBorder ??
+                OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: widget.enabledBorder == null
+                            ? Colors.transparent
+                            : Colors.grey[300]!,
+                        width: 0.0),
+                    borderRadius:
+                        BorderRadius.circular(widget.borderRound ?? 10)),
+            focusedBorder: widget.focusedBorder ??
+                OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: widget.focusedBorderColor ??
+                          Theme.of(context).primaryColor,
+                      width: 1.0),
+                  borderRadius: BorderRadius.circular(widget.borderRound ?? 10),
+                ),
           ),
           validator: widget.validator,
           controller: widget.controller,

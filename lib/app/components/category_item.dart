@@ -18,7 +18,7 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = context.theme;
     return GestureDetector(
-      onTap: () => Get.toNamed(Routes.PRODUCTS),
+      onTap: () => Get.toNamed(Routes.products),
       child: Column(
         children: [
           CircleAvatar(
@@ -27,12 +27,14 @@ class CategoryItem extends StatelessWidget {
             child: SvgPicture.asset(category.image),
           ).animate().fade(duration: 200.ms),
           10.verticalSpace,
-          Text(category.title, style: theme.textTheme.headline6)
-            .animate().fade().slideY(
-              duration: 200.ms,
-              begin: 1,
-              curve: Curves.easeInSine,
-            ),
+          Text(category.title, style: theme.textTheme.bodyMedium)
+              .animate()
+              .fade()
+              .slideY(
+                duration: 200.ms,
+                begin: 1,
+                curve: Curves.easeInSine,
+              ),
         ],
       ),
     );

@@ -68,9 +68,9 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                       width: 250.w,
                       height: 225.h,
                     ).animate().fade().scale(
-                      duration: 800.ms,
-                      curve: Curves.fastOutSlowIn,
-                    ),
+                          duration: 800.ms,
+                          curve: Curves.fastOutSlowIn,
+                        ),
                   ),
                 ],
               ),
@@ -82,16 +82,16 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                 children: [
                   Text(
                     controller.product.name,
-                    style: theme.textTheme.headline2,
+                    style: theme.textTheme.bodyMedium,
                   ).animate().fade().slideX(
-                    duration: 300.ms,
-                    begin: -1,
-                    curve: Curves.easeInSine,
-                  ),
+                        duration: 300.ms,
+                        begin: -1,
+                        curve: Curves.easeInSine,
+                      ),
                   const Spacer(),
-                  ProductCountItem(product: controller.product).animate().fade(
-                    duration: 200.ms
-                  ),
+                  ProductCountItem(product: controller.product)
+                      .animate()
+                      .fade(duration: 200.ms),
                 ],
               ),
             ),
@@ -100,26 +100,26 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Text(
                 '1kg, ${controller.product.price}\$',
-                style: theme.textTheme.headline3?.copyWith(
-                  color: theme.accentColor,
+                style: theme.textTheme.bodyLarge?.copyWith(
+                  color: theme.primaryColor,
                 ),
               ).animate().fade().slideX(
-                duration: 300.ms,
-                begin: -1,
-                curve: Curves.easeInSine,
-              ),
+                    duration: 300.ms,
+                    begin: -1,
+                    curve: Curves.easeInSine,
+                  ),
             ),
             8.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Text(
                 controller.product.description,
-                style: theme.textTheme.bodyText1,
+                style: theme.textTheme.bodySmall,
               ).animate().fade().slideX(
-                duration: 300.ms,
-                begin: -1,
-                curve: Curves.easeInSine,
-              ),
+                    duration: 300.ms,
+                    begin: -1,
+                    curve: Curves.easeInSine,
+                  ),
             ),
             20.verticalSpace,
             Padding(
@@ -133,15 +133,20 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                   mainAxisSpacing: 16.h,
                   mainAxisExtent: 80.h,
                 ),
-                children: DummyHelper.cards.map((card) => CustomCard(
-                  title: card['title']!,
-                  subtitle: card['subtitle']!,
-                  icon: card['icon']!,
-                )).toList().animate().fade().slideY(
-                  duration: 300.ms,
-                  begin: 1,
-                  curve: Curves.easeInSine,
-                ),
+                children: DummyHelper.cards
+                    .map((card) => CustomCard(
+                          title: card['title']!,
+                          subtitle: card['subtitle']!,
+                          icon: card['icon']!,
+                        ))
+                    .toList()
+                    .animate()
+                    .fade()
+                    .slideY(
+                      duration: 300.ms,
+                      begin: 1,
+                      curve: Curves.easeInSine,
+                    ),
               ),
             ),
             30.verticalSpace,
@@ -155,10 +160,10 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                 verticalPadding: 16.h,
                 hasShadow: false,
               ).animate().fade().slideY(
-                duration: 300.ms,
-                begin: 1,
-                curve: Curves.easeInSine,
-              ),
+                    duration: 300.ms,
+                    begin: 1,
+                    curve: Curves.easeInSine,
+                  ),
             ),
             30.verticalSpace,
           ],

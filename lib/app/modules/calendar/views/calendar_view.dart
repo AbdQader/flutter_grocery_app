@@ -11,7 +11,7 @@ class CalendarView extends GetView<CalendarController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calendar', style: context.theme.textTheme.headline3),
+        title: Text('Calendar', style: context.theme.textTheme.bodyMedium),
         centerTitle: true,
       ),
       body: const NoData(text: 'This is Calendar Screen'),

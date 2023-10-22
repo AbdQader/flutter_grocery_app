@@ -59,22 +59,26 @@ class CustomButton extends StatelessWidget {
           onTap: !disabled ? onPressed : null,
           child: Ink(
             width: width ?? double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: verticalPadding ?? 14.h),
+            padding: EdgeInsets.symmetric(
+                horizontal: 20.w, vertical: verticalPadding ?? 14.h),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(radius ?? 10.r),
               border: Border.all(color: borderColor ?? Colors.transparent),
-              color: !disabled ? backgroundColor ?? Get.theme.primaryColor : Get.theme.primaryColor.withOpacity(0.5),
+              color: !disabled
+                  ? backgroundColor ?? Get.theme.primaryColor
+                  : Get.theme.primaryColor.withOpacity(0.5),
               gradient: gradient,
               boxShadow: !hasShadow || disabled
-                ? null
-                : [
-                    BoxShadow(
-                      color: ( shadowColor ?? Colors.black).withOpacity(shadowOpacity),
-                      spreadRadius: shadowSpreadRadius,
-                      blurRadius: shadowBlurRadius,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
+                  ? null
+                  : [
+                      BoxShadow(
+                        color: (shadowColor ?? Colors.black)
+                            .withOpacity(shadowOpacity),
+                        spreadRadius: shadowSpreadRadius,
+                        blurRadius: shadowBlurRadius,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
             ),
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -82,7 +86,7 @@ class CustomButton extends StatelessWidget {
               children: [
                 Text(
                   text,
-                  style: Get.theme.textTheme.bodyText1?.copyWith(
+                  style: Get.theme.textTheme.bodyMedium?.copyWith(
                     fontSize: fontSize,
                     fontWeight: fontWeight,
                     color: foregroundColor ?? Colors.white,

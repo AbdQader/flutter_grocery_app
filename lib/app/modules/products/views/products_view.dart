@@ -10,7 +10,7 @@ import '../controllers/products_controller.dart';
 
 class ProductsView extends GetView<ProductsController> {
   const ProductsView({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     final theme = context.theme;
@@ -34,7 +34,7 @@ class ProductsView extends GetView<ProductsController> {
               ),
               Text(
                 'Vegetables 🌽',
-                style: theme.textTheme.headline3,
+                style: theme.textTheme.bodyMedium,
               ),
               CustomIconButton(
                 onPressed: () {},
