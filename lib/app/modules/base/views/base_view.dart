@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:badges/badges.dart' as badges;
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
@@ -106,7 +108,10 @@ class BaseView extends GetView<BaseController> {
   _mBottomNavItem({required String label, required String icon}) {
     return BottomNavigationBarItem(
       label: label,
-      icon: SvgPicture.asset(icon, color: Get.theme.iconTheme.color),
+      icon: SvgPicture.asset(
+        icon,
+        color: Colors.grey.withOpacity(0.5),
+      ),
       activeIcon:
           SvgPicture.asset(icon, color: Get.theme.appBarTheme.iconTheme?.color),
     );
