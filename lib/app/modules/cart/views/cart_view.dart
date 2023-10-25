@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,7 +37,7 @@ class CartView extends GetView<CartController> {
                   color: theme.appBarTheme.iconTheme?.color,
                 ),
               ),
-              Text('Cart 🛒', style: theme.textTheme.headline3),
+              Text('Cart 🛒', style: theme.textTheme.bodyMedium),
               const Opacity(
                 opacity: 0.0,
                 child: CustomIconButton(onPressed: null, icon: Center()),
@@ -50,21 +52,21 @@ class CartView extends GetView<CartController> {
             24.verticalSpace,
             Expanded(
               child: controller.products.isEmpty
-                ? const NoData(text: 'No Products in Your Cart Yet!')
-                : ListView.separated(
-                    separatorBuilder: (_, index) => Padding(
-                      padding: EdgeInsets.only(top: 12.h, bottom: 24.h),
-                      child: const Divider(thickness: 1),
+                  ? const NoData(text: 'No Products in Your Cart Yet!')
+                  : ListView.separated(
+                      separatorBuilder: (_, index) => Padding(
+                        padding: EdgeInsets.only(top: 12.h, bottom: 24.h),
+                        child: const Divider(thickness: 1),
+                      ),
+                      itemCount: controller.products.length,
+                      itemBuilder: (context, index) => CartItem(
+                        product: controller.products[index],
+                      ).animate(delay: (100 * index).ms).fade().slideX(
+                            duration: 300.ms,
+                            begin: -1,
+                            curve: Curves.easeInSine,
+                          ),
                     ),
-                    itemCount: controller.products.length,
-                    itemBuilder: (context, index) => CartItem(
-                      product: controller.products[index],
-                    ).animate(delay: (100 * index).ms).fade().slideX(
-                      duration: 300.ms,
-                      begin: -1,
-                      curve: Curves.easeInSine,
-                    ),
-                  ),
             ),
             30.verticalSpace,
             Visibility(
@@ -79,10 +81,10 @@ class CartView extends GetView<CartController> {
                   verticalPadding: 16.h,
                   hasShadow: false,
                 ).animate().fade().slideY(
-                  duration: 300.ms,
-                  begin: 1,
-                  curve: Curves.easeInSine,
-                ),
+                      duration: 300.ms,
+                      begin: 1,
+                      curve: Curves.easeInSine,
+                    ),
               ),
             ),
             30.verticalSpace,

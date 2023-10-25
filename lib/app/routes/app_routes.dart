@@ -3,28 +3,28 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   Routes._();
-  static const SPLASH = _Paths.SPLASH;
-  static const BASE = _Paths.BASE;
-  static const HOME = _Paths.HOME;
-  static const CART = _Paths.CART;
-  static const PRODUCT_DETAILS = _Paths.PRODUCT_DETAILS;
-  static const WELCOME = _Paths.WELCOME;
-  static const CATEGORY = _Paths.CATEGORY;
-  static const CALENDAR = _Paths.CALENDAR;
-  static const PROFILE = _Paths.PROFILE;
-  static const PRODUCTS = _Paths.PRODUCTS;
+  static const splash = _Paths.splash;
+  static const base = _Paths.base;
+  static const home = _Paths.home;
+  static const cart = _Paths.cart;
+  static const productDetails = _Paths.productDetails;
+  static const welcome = _Paths.welcome;
+  static const category = _Paths.category;
+  static const calendar = _Paths.calendar;
+  static const profile = _Paths.profile;
+  static const products = _Paths.products;
 }
 
 abstract class _Paths {
   _Paths._();
-  static const SPLASH = '/splash';
-  static const WELCOME = '/welcome';
-  static const BASE = '/base';
-  static const HOME = '/home';
-  static const CART = '/cart';
-  static const PRODUCT_DETAILS = '/product-details';
-  static const CATEGORY = '/category';
-  static const CALENDAR = '/calendar';
-  static const PROFILE = '/profile';
-  static const PRODUCTS = '/products';
+  static const splash = '/splash';
+  static const welcome = '/welcome';
+  static const base = '/base';
+  static const home = '/home';
+  static const cart = '/cart';
+  static const productDetails = '/product-details';
+  static const category = '/category';
+  static const calendar = '/calendar';
+  static const profile = '/profile';
+  static const products = '/products';
 }

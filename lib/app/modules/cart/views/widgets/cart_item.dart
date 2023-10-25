@@ -26,12 +26,12 @@ class CartItem extends GetView<CartController> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(product.name, style: theme.textTheme.headline5),
+              Text(product.name, style: theme.textTheme.titleSmall),
               5.verticalSpace,
               Text(
                 '1kg, ${product.price}\$',
-                style: theme.textTheme.headline5?.copyWith(
-                  color: theme.accentColor,
+                style: theme.textTheme.titleSmall?.copyWith(
+                  color: theme.primaryColor,
                 ),
               ),
             ],

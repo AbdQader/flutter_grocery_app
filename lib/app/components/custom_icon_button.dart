@@ -26,10 +26,12 @@ class CustomIconButton extends StatelessWidget {
       width: width ?? 44.w,
       height: height ?? 44.h,
       child: Material(
-        color: backgroundColor ?? theme.backgroundColor,
-        shape: borderColor == null ? const CircleBorder() : CircleBorder(
-          side: BorderSide(color: borderColor!),
-        ),
+        color: backgroundColor ?? theme.primaryColor.withOpacity(0.1),
+        shape: borderColor == null
+            ? const CircleBorder()
+            : CircleBorder(
+                side: BorderSide(color: borderColor!),
+              ),
         child: InkWell(
           onTap: onPressed,
           child: icon,

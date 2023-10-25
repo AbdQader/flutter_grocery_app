@@ -11,7 +11,7 @@ class ProfileView extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile', style: context.theme.textTheme.headline3),
+        title: Text('Profile', style: context.theme.textTheme.bodyMedium),
         centerTitle: true,
       ),
       body: const NoData(text: 'This is Profile Screen'),

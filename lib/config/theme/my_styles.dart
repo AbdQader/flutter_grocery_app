@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'dark_theme_colors.dart';
 import 'my_fonts.dart';
 import 'light_theme_colors.dart';
 
 class MyStyles {
-  ///icons theme
+  /// Icons theme
   static IconThemeData getIconTheme({required bool isLightTheme}) =>
       IconThemeData(
         color: isLightTheme
@@ -15,13 +13,12 @@ class MyStyles {
             : DarkThemeColors.iconColor,
       );
 
-  ///app bar theme
+  /// App bar theme
   static AppBarTheme getAppBarTheme({required bool isLightTheme}) =>
       AppBarTheme(
         elevation: 0,
-        scrolledUnderElevation: 0,
         titleTextStyle:
-            getTextTheme(isLightTheme: isLightTheme).bodyText1!.copyWith(
+            getTextTheme(isLightTheme: isLightTheme).bodyLarge!.copyWith(
                   color: Colors.white,
                   fontSize: MyFonts.appBarTittleSize,
                 ),
@@ -34,62 +31,77 @@ class MyStyles {
             : DarkThemeColors.appbarColor,
       );
 
-  ///text theme
+  /// Text theme
   static TextTheme getTextTheme({required bool isLightTheme}) => TextTheme(
-        button: MyFonts.buttonTextStyle
-            .copyWith(fontSize: MyFonts.buttonTextSize),
-        bodyText1: (MyFonts.bodyTextStyle).copyWith(
-            fontWeight: FontWeight.bold,
-            fontSize: MyFonts.body1TextSize,
-            color: isLightTheme
-                ? LightThemeColors.bodyTextColor
-                : DarkThemeColors.bodyTextColor),
-        bodyText2: (MyFonts.bodyTextStyle).copyWith(
-            fontSize: MyFonts.body2TextSize,
-            color: isLightTheme
-                ? LightThemeColors.bodyTextColor
-                : DarkThemeColors.bodyTextColor),
-        headline1: (MyFonts.headlineTextStyle).copyWith(
-            fontSize: MyFonts.headline1TextSize,
-            fontWeight: FontWeight.bold,
-            color: isLightTheme
-                ? LightThemeColors.headlinesTextColor
-                : DarkThemeColors.headlinesTextColor),
-        headline2: (MyFonts.headlineTextStyle).copyWith(
-            fontSize: MyFonts.headline2TextSize,
-            fontWeight: FontWeight.bold,
-            color: isLightTheme
-                ? LightThemeColors.headlinesTextColor
-                : DarkThemeColors.headlinesTextColor),
-        headline3: (MyFonts.headlineTextStyle).copyWith(
-            fontSize: MyFonts.headline3TextSize,
-            fontWeight: FontWeight.bold,
-            color: isLightTheme
-                ? LightThemeColors.headlinesTextColor
-                : DarkThemeColors.headlinesTextColor),
-        headline4: (MyFonts.headlineTextStyle).copyWith(
-            fontSize: MyFonts.headline4TextSize,
-            fontWeight: FontWeight.bold,
-            color: isLightTheme
-                ? LightThemeColors.headlinesTextColor
-                : DarkThemeColors.headlinesTextColor),
-        headline5: (MyFonts.headlineTextStyle).copyWith(
-            fontSize: MyFonts.headline5TextSize,
-            fontWeight: FontWeight.bold,
-            color: isLightTheme
-                ? LightThemeColors.headlinesTextColor
-                : DarkThemeColors.headlinesTextColor),
-        headline6: (MyFonts.headlineTextStyle).copyWith(
-            fontSize: MyFonts.headline6TextSize,
-            fontWeight: FontWeight.bold,
-            color: isLightTheme
-                ? LightThemeColors.headlinesTextColor
-                : DarkThemeColors.headlinesTextColor),
-        caption: TextStyle(
-            color: isLightTheme
-                ? LightThemeColors.captionTextColor
-                : DarkThemeColors.captionTextColor,
-            fontSize: MyFonts.captionTextSize),
+        labelLarge:
+            MyFonts.buttonTextStyle.copyWith(fontSize: MyFonts.buttonTextSize),
+        bodyLarge: (MyFonts.bodyTextStyle).copyWith(
+          fontWeight: FontWeight.bold,
+          fontSize: MyFonts.body1TextSize,
+          color: isLightTheme
+              ? LightThemeColors.bodyTextColor
+              : DarkThemeColors.bodyTextColor,
+        ),
+        bodyMedium: (MyFonts.bodyTextStyle).copyWith(
+          // Use bodyText2 instead of bodySmall
+          fontSize: MyFonts.body2TextSize,
+          color: isLightTheme
+              ? LightThemeColors.bodyTextColor
+              : DarkThemeColors.bodyTextColor,
+        ),
+        displayLarge: (MyFonts.headlineTextStyle).copyWith(
+          fontSize: MyFonts.titleSmallTextSize,
+          fontWeight: FontWeight.bold,
+          color: isLightTheme
+              ? LightThemeColors.headlinesTextColor
+              : DarkThemeColors.headlinesTextColor,
+        ),
+        displayMedium: (MyFonts.headlineTextStyle).copyWith(
+          fontSize: MyFonts.headline2TextSize,
+          fontWeight: FontWeight.bold,
+          color: isLightTheme
+              ? LightThemeColors.headlinesTextColor
+              : DarkThemeColors.headlinesTextColor,
+        ),
+        displaySmall: (MyFonts.headlineTextStyle).copyWith(
+          // Use headline3 instead of bodyMedium
+          fontSize: MyFonts.bodyMediumTextSize,
+          fontWeight: FontWeight.bold,
+          color: isLightTheme
+              ? LightThemeColors.headlinesTextColor
+              : DarkThemeColors.headlinesTextColor,
+        ),
+        headlineMedium: (MyFonts.headlineTextStyle).copyWith(
+          // Use headline4 instead of titleSmall
+          fontSize: MyFonts.titleSmallTextSize,
+          fontWeight: FontWeight.bold,
+          color: isLightTheme
+              ? LightThemeColors.headlinesTextColor
+              : DarkThemeColors.headlinesTextColor,
+        ),
+        headlineSmall: (MyFonts.headlineTextStyle).copyWith(
+          // Use headline5 instead of headlineSmall
+          fontSize: MyFonts.titleSmallTextSize,
+          fontWeight: FontWeight.bold,
+          color: isLightTheme
+              ? LightThemeColors.headlinesTextColor
+              : DarkThemeColors.headlinesTextColor,
+        ),
+        titleLarge: (MyFonts.headlineTextStyle).copyWith(
+          // Use headline6 instead of displaySmall
+          fontSize: MyFonts.titleSmallTextSize,
+          fontWeight: FontWeight.bold,
+          color: isLightTheme
+              ? LightThemeColors.headlinesTextColor
+              : DarkThemeColors.headlinesTextColor,
+        ),
+        bodySmall: TextStyle(
+          // Use caption instead of bodyLarge
+          color: isLightTheme
+              ? LightThemeColors.captionTextColor
+              : DarkThemeColors.captionTextColor,
+          fontSize: MyFonts.captionTextSize,
+        ),
       );
 
   static ChipThemeData getChipTheme({required bool isLightTheme}) {
@@ -107,7 +119,7 @@ class MyStyles {
     );
   }
 
-  ///Chips text style
+  /// Chips text style
   static TextStyle getChipTextStyle({required bool isLightTheme}) {
     return MyFonts.chipTextStyle.copyWith(
       fontSize: MyFonts.chipTextSize,
@@ -117,53 +129,56 @@ class MyStyles {
     );
   }
 
-  // elevated button text style
-  static MaterialStateProperty<TextStyle?>? getElevatedButtonTextStyle(
-      bool isLightTheme,
-      {bool isBold = true,
-      double? fontSize}) {
-    return MaterialStateProperty.resolveWith<TextStyle>(
+  // Elevated button text style
+  static MaterialStateProperty<TextStyle?> getElevatedButtonTextStyle(
+    bool isLightTheme, {
+    bool isBold = true,
+    double? fontSize,
+  }) {
+    return MaterialStateProperty.resolveWith<TextStyle?>(
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.pressed)) {
           return MyFonts.buttonTextStyle.copyWith(
-              fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
-              fontSize: fontSize ?? MyFonts.buttonTextSize,
-              color: isLightTheme
-                  ? LightThemeColors.buttonTextColor
-                  : DarkThemeColors.buttonTextColor);
+            fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+            fontSize: fontSize ?? MyFonts.buttonTextSize,
+            color: isLightTheme
+                ? LightThemeColors.buttonTextColor
+                : DarkThemeColors.buttonTextColor,
+          );
         } else if (states.contains(MaterialState.disabled)) {
           return MyFonts.buttonTextStyle.copyWith(
-              fontSize: fontSize ?? MyFonts.buttonTextSize,
-              fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
-              color: isLightTheme
-                  ? LightThemeColors.buttonDisabledTextColor
-                  : DarkThemeColors.buttonDisabledTextColor);
-        }
-        return MyFonts.buttonTextStyle.copyWith(
             fontSize: fontSize ?? MyFonts.buttonTextSize,
             fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
             color: isLightTheme
-                ? LightThemeColors.buttonTextColor
-                : DarkThemeColors
-                    .buttonTextColor); // Use the component's default.
+                ? LightThemeColors.buttonDisabledTextColor
+                : DarkThemeColors.buttonDisabledTextColor,
+          );
+        }
+        return MyFonts.buttonTextStyle.copyWith(
+          fontSize: fontSize ?? MyFonts.buttonTextSize,
+          fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+          color: isLightTheme
+              ? LightThemeColors.buttonTextColor
+              : DarkThemeColors.buttonTextColor,
+        );
       },
     );
   }
 
-  //elevated button theme data
+  // Elevated button theme data
   static ElevatedButtonThemeData getElevatedButtonTheme(
           {required bool isLightTheme}) =>
       ElevatedButtonThemeData(
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(6.r),
-              //side: BorderSide(color: Colors.teal, width: 2.0),
+              borderRadius: BorderRadius.circular(6),
             ),
           ),
           elevation: MaterialStateProperty.all(0),
-          padding:
-              MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.symmetric(vertical: 8.h)),
+          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+            const EdgeInsets.symmetric(vertical: 8),
+          ),
           textStyle: getElevatedButtonTextStyle(isLightTheme),
           backgroundColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
@@ -178,7 +193,7 @@ class MyStyles {
               }
               return isLightTheme
                   ? LightThemeColors.buttonColor
-                  : DarkThemeColors.buttonColor; // Use the component's default.
+                  : DarkThemeColors.buttonColor;
             },
           ),
         ),

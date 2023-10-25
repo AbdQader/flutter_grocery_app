@@ -26,58 +26,59 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  // ignore: constant_identifier_names
+  static const INITIAL = Routes.splash;
 
   static final routes = [
     GetPage(
-      name: _Paths.SPLASH,
+      name: _Paths.splash,
       page: () => const SplashView(),
       binding: SplashBinding(),
     ),
     GetPage(
-      name: _Paths.WELCOME,
+      name: _Paths.welcome,
       page: () => const WelcomeView(),
       binding: WelcomeBinding(),
     ),
     GetPage(
-      name: _Paths.BASE,
+      name: _Paths.base,
       page: () => const BaseView(),
       binding: BaseBinding(),
     ),
     GetPage(
-      name: _Paths.HOME,
+      name: _Paths.home,
       page: () => const HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.CART,
+      name: _Paths.cart,
       page: () => const CartView(),
       binding: CartBinding(),
     ),
     GetPage(
-      name: _Paths.PRODUCT_DETAILS,
+      name: _Paths.productDetails,
       page: () => const ProductDetailsView(),
       binding: ProductDetailsBinding(),
       transition: Transition.rightToLeft,
       transitionDuration: const Duration(milliseconds: 250),
     ),
     GetPage(
-      name: _Paths.CATEGORY,
+      name: _Paths.category,
       page: () => const CategoryView(),
       binding: CategoryBinding(),
     ),
     GetPage(
-      name: _Paths.CALENDAR,
+      name: _Paths.calendar,
       page: () => const CalendarView(),
       binding: CalendarBinding(),
     ),
     GetPage(
-      name: _Paths.PROFILE,
+      name: _Paths.profile,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
     ),
     GetPage(
-      name: _Paths.PRODUCTS,
+      name: _Paths.products,
       page: () => const ProductsView(),
       binding: ProductsBinding(),
     ),

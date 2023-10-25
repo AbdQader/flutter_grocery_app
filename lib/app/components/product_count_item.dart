@@ -10,10 +10,7 @@ import 'custom_icon_button.dart';
 
 class ProductCountItem extends GetView<BaseController> {
   final ProductModel product;
-  const ProductCountItem({
-    Key? key,
-    required this.product
-  }) : super(key: key);
+  const ProductCountItem({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +32,7 @@ class ProductCountItem extends GetView<BaseController> {
           id: 'ProductQuantity',
           builder: (_) => Text(
             product.quantity.toString(),
-            style: theme.textTheme.headline4,
+            style: theme.textTheme.bodySmall,
           ),
         ),
         16.horizontalSpace,

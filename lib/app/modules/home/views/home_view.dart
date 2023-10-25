@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,13 +42,12 @@ class HomeView extends GetView<HomeController> {
                       contentPadding: EdgeInsets.symmetric(horizontal: 24.w),
                       title: Text(
                         'Good morning',
-                        style: theme.textTheme.bodyText2?.copyWith(
-                          fontSize: 12.sp
-                        ),
+                        style: theme.textTheme.bodySmall
+                            ?.copyWith(fontSize: 12.sp),
                       ),
                       subtitle: Text(
                         'Amelia Barlow',
-                        style: theme.textTheme.headline5?.copyWith(
+                        style: theme.textTheme.titleSmall?.copyWith(
                           fontWeight: FontWeight.normal,
                         ),
                       ),
@@ -67,8 +68,8 @@ class HomeView extends GetView<HomeController> {
                           id: 'Theme',
                           builder: (_) => Icon(
                             controller.isLightTheme
-                              ? Icons.dark_mode_outlined
-                              : Icons.light_mode_outlined,
+                                ? Icons.dark_mode_outlined
+                                : Icons.light_mode_outlined,
                             color: theme.appBarTheme.iconTheme?.color,
                             size: 20,
                           ),
@@ -87,17 +88,13 @@ class HomeView extends GetView<HomeController> {
                         maxLines: 1,
                         borderRound: 60.r,
                         contentPadding: EdgeInsets.symmetric(
-                          vertical: 10.h,
-                          horizontal: 10.w
-                        ),
+                            vertical: 10.h, horizontal: 10.w),
                         focusedBorderColor: Colors.transparent,
                         isSearchField: true,
                         keyboardType: TextInputType.text,
                         textInputAction: TextInputAction.search,
-                        prefixIcon: SvgPicture.asset(
-                          Constants.searchIcon,
-                          fit: BoxFit.none
-                        ),
+                        prefixIcon: SvgPicture.asset(Constants.searchIcon,
+                            fit: BoxFit.none),
                       ),
                     ),
                     20.verticalSpace,
@@ -130,11 +127,11 @@ class HomeView extends GetView<HomeController> {
                         children: [
                           Text(
                             'Categories 😋',
-                            style: theme.textTheme.headline4,
+                            style: theme.textTheme.titleSmall,
                           ),
                           Text(
                             'See all',
-                            style: theme.textTheme.headline6?.copyWith(
+                            style: theme.textTheme.titleSmall?.copyWith(
                               color: theme.primaryColor,
                               fontWeight: FontWeight.normal,
                             ),
@@ -154,11 +151,11 @@ class HomeView extends GetView<HomeController> {
                         children: [
                           Text(
                             'Best selling 🔥',
-                            style: theme.textTheme.headline4,
+                            style: theme.textTheme.titleSmall,
                           ),
                           Text(
                             'See all',
-                            style: theme.textTheme.headline6?.copyWith(
+                            style: theme.textTheme.titleSmall?.copyWith(
                               color: theme.primaryColor,
                               fontWeight: FontWeight.normal,
                             ),

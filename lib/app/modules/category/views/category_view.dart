@@ -11,7 +11,7 @@ class CategoryView extends GetView<CategoryController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Category', style: context.theme.textTheme.headline3),
+        title: Text('Category', style: context.theme.textTheme.bodyMedium),
         centerTitle: true,
       ),
       body: const NoData(text: 'This is Category Screen'),

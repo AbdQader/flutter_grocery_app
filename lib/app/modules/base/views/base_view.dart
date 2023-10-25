@@ -1,7 +1,10 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:badges/badges.dart' as badges;
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:badges/badges.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/constants.dart';
@@ -70,28 +73,29 @@ class BaseView extends GetView<BaseController> {
         floatingActionButton: FloatingActionButton(
           elevation: 0.0,
           backgroundColor: Colors.transparent,
-          onPressed:() => Get.toNamed(Routes.CART),
+          onPressed: () => Get.toNamed(Routes.cart),
           child: GetBuilder<BaseController>(
             id: 'CartBadge',
-            builder: (_) => Badge(
+            builder: (_) => badges.Badge(
               position: BadgePosition.bottomEnd(bottom: -16, end: 13),
               badgeContent: Text(
                 controller.cartItemsCount.toString(),
-                style: theme.textTheme.bodyText2?.copyWith(
+                style: theme.textTheme.bodyMedium?.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               badgeStyle: BadgeStyle(
                 elevation: 2,
-                badgeColor: theme.accentColor,
+                badgeColor: theme.primaryColor,
                 borderSide: const BorderSide(color: Colors.white, width: 1),
               ),
               child: CircleAvatar(
                 radius: 22.r,
                 backgroundColor: theme.primaryColor,
                 child: SvgPicture.asset(
-                  Constants.cartIcon, fit: BoxFit.none,
+                  Constants.cartIcon,
+                  fit: BoxFit.none,
                 ),
               ),
             ),
@@ -104,9 +108,12 @@ class BaseView extends GetView<BaseController> {
   _mBottomNavItem({required String label, required String icon}) {
     return BottomNavigationBarItem(
       label: label,
-      icon: SvgPicture.asset(icon, color: Get.theme.iconTheme.color),
-      activeIcon: SvgPicture.asset(icon, color: Get.theme.appBarTheme.iconTheme?.color),
+      icon: SvgPicture.asset(
+        icon,
+        color: Colors.grey.withOpacity(0.5),
+      ),
+      activeIcon:
+          SvgPicture.asset(icon, color: Get.theme.appBarTheme.iconTheme?.color),
     );
   }
-
 }
